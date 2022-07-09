@@ -13,5 +13,4 @@ This is for educational use, so forks, pulls, and anything else welcome!
 
 ### Sources
 
-1. Complete C# Unity Game Developer 2D
- - https://www.udemy.com/course/unitycourse/
+1. Complete C# Unity Game Developer 2D - https://www.udemy.com/course/unitycourse/
