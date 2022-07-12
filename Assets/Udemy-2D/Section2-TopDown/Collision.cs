@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Collision : MonoBehaviour
 {
+    private char renameLetter = 'a';
 
     bool hasPackage = false;
     [SerializeField] Color32 hasPackageColor = new Color32();
@@ -17,6 +18,12 @@ public class Collision : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other) {
         Debug.Log("doing something!");
+        // if(other.tag == "ouch"){
+        //     int num = 1;
+        //     Debug.Log("This is the OG name" + obj.name);
+        //     other.name = "Renamed Obj-" + num;
+        //     num++;
+        // }
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
@@ -32,7 +39,9 @@ public class Collision : MonoBehaviour
             Debug.Log("Where is it?");
         }
         if(other.tag == "Ouch"){
-            Debug.Log("Ouch Silly!");
+            Debug.Log("This is the OG name" + other.name);
+            other.name = other.name + " " + renameLetter;
+            renameLetter++;
         }
         if(other.tag == "DaBox"){
             hasPackage = true;
