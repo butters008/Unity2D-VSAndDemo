@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour
     }
 
     public void disableControls(){
+        Debug.Log("Function called!");
         canMove = false;
     }
 
