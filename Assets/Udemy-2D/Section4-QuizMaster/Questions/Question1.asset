@@ -13,3 +13,9 @@ MonoBehaviour:
   m_Name: Question1
   m_EditorClassIdentifier: 
   quizQuestion: Who made this game?
+  answers:
+  - Keith
+  - Nicole
+  - Rick
+  - Taye
+  correctAnswerIndex: 0
