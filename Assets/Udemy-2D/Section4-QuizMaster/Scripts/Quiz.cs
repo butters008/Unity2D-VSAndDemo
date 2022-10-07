@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class Quiz : MonoBehaviour
 {
@@ -13,20 +14,60 @@ public class Quiz : MonoBehaviour
     [SerializeField] QuestionsSO question;
     [SerializeField] TextMeshProUGUI questionText;
     [SerializeField] GameObject[] answerButtons;
+    int correctAnswerIndex;
+    [SerializeField] Sprite defaultAnswerSprite;
+    [SerializeField] Sprite correctAnswerSprite;
 
     // Start is called before the first frame update
     void Start()
     {
+        DisplayQuestion();
+
+    }
+
+    //I had this public, but he had it as private
+    void DisplayQuestion(){
         for(int i = 0; i < answerButtons.Length; i++){
             questionText.text = question.getQuestion();
             TextMeshProUGUI buttonText =  answerButtons[i].GetComponentInChildren<TextMeshProUGUI>();
             buttonText.text = question.getAnswer(i);
         }
+    } 
+
+    public void OnAnswerSelected(int index){
+        Image buttonImage;
+
+        if(index == question.getCorrectAnswerIndex()){
+            questionText.text = "Correct";
+            buttonImage = answerButtons[index].GetComponent<Image>();
+            buttonImage.sprite = correctAnswerSprite;
+        }
+        else {
+            correctAnswerIndex = question.getCorrectAnswerIndex();
+            string correctAnwser = question.getAnswer(correctAnswerIndex);
+            buttonImage = answerButtons[correctAnswerIndex].GetComponent<Image>();
+            questionText.text = "Sorry answer is " + correctAnwser;
+        }
+        SetButtonState(false);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public void SetButtonState(bool state){
+        for(int i = 0; i < answerButtons.Length; i++){
+            Button button = answerButtons[i].GetComponent<Button>();
+            button.interactable = state;
+        }
+    }
+
+    void GetNextQuestion(){
+        SetButtonState(true);
+        DisplayQuestion();
+        SetButtonDefaultButtonSprite();
+    }
+
+    void SetButtonDefaultButtonSprite(){
+        for(int i = 0; i < answerButtons.Length; i++){
+            Image buttonImage = answerButtons[i].GetComponent<Image>();
+            buttonImage.sprite = defaultAnswerSprite;
+        }
     }
 }
