@@ -9,20 +9,35 @@ public class Quiz : MonoBehaviour
 
     //Neat trick to write down later - padlock on top of
     //inspector locks it so you don't have to fight it when
-    //adding new things into inspector (example adding something into array)
-
+    //adding new things into inspector (example adding something into array)  
+    //***NOTE*** I have no idea on what a header is ATM, on 10/12/22 or what they will even do for us
+    [Header("Questions")] //This is for the inspector!!! COOL!!!!
     [SerializeField] QuestionsSO question;
     [SerializeField] TextMeshProUGUI questionText;
+
+    [Header("Answers")]
     [SerializeField] GameObject[] answerButtons;
     int correctAnswerIndex;
+
+    [Header("Sprites")]
     [SerializeField] Sprite defaultAnswerSprite;
     [SerializeField] Sprite correctAnswerSprite;
+
+    [Header("Timer")]
+    [SerializeField] Image timerImage;
+    Timer timer;
 
     // Start is called before the first frame update
     void Start()
     {
+        timer = FindObjectOfType<Timer>();
         DisplayQuestion();
 
+
+    }
+
+    void Update() {
+        timerImage.fillAmount = 
     }
 
     //I had this public, but he had it as private
