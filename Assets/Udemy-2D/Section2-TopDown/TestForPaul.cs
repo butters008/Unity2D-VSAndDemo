@@ -9,7 +9,7 @@ public class TestForPaul : MonoBehaviour
 
     void ChangeName(GameObject obj){
         if(obj.tag == "ouch"){
-            int num = 1;
+            // int num = 1;
             Debug.Log("This is the OG name" + obj.name);
             obj.name = obj.name + " " + renameLetter;
             renameLetter++;
