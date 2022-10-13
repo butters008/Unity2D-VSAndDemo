@@ -441,6 +441,8 @@ MonoBehaviour:
   timeToShowAnwser: 3
   timeToCompleteQuestion: 5
   isAnsweringQuestion: 0
+  fillFraction: 0
+  loadNextQuestion: 0
 --- !u!4 &515591402
 Transform:
   m_ObjectHideFlags: 0
@@ -758,6 +760,7 @@ MonoBehaviour:
   - {fileID: 1606545434}
   defaultAnswerSprite: {fileID: 21300000, guid: aa5d17d5ae30e134f9f0f113fd5087c3, type: 3}
   correctAnswerSprite: {fileID: 21300000, guid: c6efa3cf393627a4a9efb5e9f9d686c0, type: 3}
+  timerImage: {fileID: 1155720831}
 --- !u!1 &901790828
 GameObject:
   m_ObjectHideFlags: 0
