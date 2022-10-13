@@ -18,6 +18,7 @@ public class Quiz : MonoBehaviour
     [Header("Answers")]
     [SerializeField] GameObject[] answerButtons;
     int correctAnswerIndex;
+    bool answeredEarly;
 
     [Header("Sprites")]
     [SerializeField] Sprite defaultAnswerSprite;
@@ -38,6 +39,15 @@ public class Quiz : MonoBehaviour
 
     void Update() {
         timerImage.fillAmount = timer.fillFraction;
+        if(timer.loadNextQuestion){
+            answeredEarly = false;
+            GetNextQuestion();
+            timer.loadNextQuestion = false;
+
+        }else if(!answeredEarly && !timer.isAnsweringQuestion){
+            DisplayAnswer(-1);
+            SetButtonState(false);
+        }
 
     }
 
@@ -51,20 +61,10 @@ public class Quiz : MonoBehaviour
     } 
 
     public void OnAnswerSelected(int index){
-        Image buttonImage;
-
-        if(index == question.getCorrectAnswerIndex()){
-            questionText.text = "Correct";
-            buttonImage = answerButtons[index].GetComponent<Image>();
-            buttonImage.sprite = correctAnswerSprite;
-        }
-        else {
-            correctAnswerIndex = question.getCorrectAnswerIndex();
-            string correctAnwser = question.getAnswer(correctAnswerIndex);
-            buttonImage = answerButtons[correctAnswerIndex].GetComponent<Image>();
-            questionText.text = "Sorry answer is " + correctAnwser;
-        }
+        answeredEarly = true;
+        DisplayAnswer(index);
         SetButtonState(false);
+        timer.CancelTimer();
     }
 
     public void SetButtonState(bool state){
@@ -84,6 +84,21 @@ public class Quiz : MonoBehaviour
         for(int i = 0; i < answerButtons.Length; i++){
             Image buttonImage = answerButtons[i].GetComponent<Image>();
             buttonImage.sprite = defaultAnswerSprite;
+        }
+    }
+
+    void DisplayAnswer(int index){
+        Image buttonImage;
+        if(index == question.getCorrectAnswerIndex()){
+            questionText.text = "Correct";
+            buttonImage = answerButtons[index].GetComponent<Image>();
+            buttonImage.sprite = correctAnswerSprite;
+        }
+        else {
+            correctAnswerIndex = question.getCorrectAnswerIndex();
+            string correctAnwser = question.getAnswer(correctAnswerIndex);
+            buttonImage = answerButtons[correctAnswerIndex].GetComponent<Image>();
+            questionText.text = "Sorry answer is " + correctAnwser;
         }
     }
 }
