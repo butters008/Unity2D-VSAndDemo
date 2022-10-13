@@ -37,7 +37,8 @@ public class Quiz : MonoBehaviour
     }
 
     void Update() {
-        timerImage.fillAmount = 
+        timerImage.fillAmount = timer.fillFraction;
+
     }
 
     //I had this public, but he had it as private
