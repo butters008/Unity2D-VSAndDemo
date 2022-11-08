@@ -20,6 +20,7 @@ public class Quiz : MonoBehaviour
   [SerializeField] GameObject[] answerButtons;
   int correctAnswerIndex;
   bool answeredEarly;
+  bool answeredEarly = true;
 
   [Header("Sprites")]
   [SerializeField] Sprite defaultAnswerSprite;
@@ -33,11 +34,18 @@ public class Quiz : MonoBehaviour
   [SerializeField] TextMeshProUGUI scoreText;
   ScoreKeeper scoreKeeper;
 
-  // Start is called before the first frame update
-  void Start()
+  [Header("Progress Bar")]
+  [SerializeField] Slider progressBar;
+
+  public bool isComplete;
+
+  // Awake is the first inengine method that is used in heriarchy
+  void Awake()
   {
     timer = FindObjectOfType<Timer>();
     scoreKeeper = FindObjectOfType<ScoreKeeper>();
+    progressBar.maxValue = questions.Count;
+    progressBar.value = 0;
   }
 
   void Update()
@@ -45,6 +53,12 @@ public class Quiz : MonoBehaviour
     timerImage.fillAmount = timer.fillFraction;
     if (timer.loadNextQuestion)
     {
+      if (progressBar.value == progressBar.maxValue)
+      {
+        isComplete = true;
+        return;
+      }
+
       answeredEarly = false;
       GetNextQuestion();
       timer.loadNextQuestion = false;
@@ -76,6 +90,10 @@ public class Quiz : MonoBehaviour
     SetButtonState(false);
     timer.CancelTimer();
     scoreText.text = "Score: " + scoreKeeper.CalcScore() + "%";
+    if (progressBar.value == progressBar.maxValue)
+    {
+      isComplete = true;
+    }
 
   }
 
@@ -97,6 +115,7 @@ public class Quiz : MonoBehaviour
       GetRandomQuestion();
       DisplayQuestion();
       SetButtonDefaultButtonSprite();
+      progressBar.value++;
       scoreKeeper.IncrementQuestionSeen();
     }
   }
