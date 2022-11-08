@@ -13,3 +13,9 @@ MonoBehaviour:
   m_Name: Question3
   m_EditorClassIdentifier: 
   quizQuestion: What is my son's name
+  answers:
+  - Bob
+  - Luke
+  - Taye
+  - Jim Bob
+  correctAnswerIndex: 2

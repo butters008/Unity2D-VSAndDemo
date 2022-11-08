@@ -13,3 +13,9 @@ MonoBehaviour:
   m_Name: Question4
   m_EditorClassIdentifier: 
   quizQuestion: What animal will probably kill me in my sleep?
+  answers:
+  - Lucy
+  - Kylo
+  - Sam
+  - Nicole
+  correctAnswerIndex: 1
