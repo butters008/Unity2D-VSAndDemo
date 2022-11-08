@@ -19,7 +19,6 @@ public class Quiz : MonoBehaviour
   [Header("Answers")]
   [SerializeField] GameObject[] answerButtons;
   int correctAnswerIndex;
-  bool answeredEarly;
   bool answeredEarly = true;
 
   [Header("Sprites")]
