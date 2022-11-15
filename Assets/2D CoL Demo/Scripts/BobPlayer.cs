@@ -5,7 +5,11 @@ using UnityEngine;
 public class BobPlayer : MonoBehaviour
 {
 
-  float moveSpeed = 2f;
+  [Header("Basic Character")]
+  [SerializeField] float moveSpeed = 2f;
+  [SerializeField] int health = 10;
+
+
 
   // Start is called before the first frame update
   void Start()
@@ -26,4 +30,6 @@ public class BobPlayer : MonoBehaviour
     transform.Translate(moveAmount, 0, 0);
     // }
   }
+
+
 }
