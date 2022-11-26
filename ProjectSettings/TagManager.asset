@@ -8,6 +8,8 @@ TagManager:
   - DaBox
   - Package
   - FinishLine
+  - Pipe
+  - GarbageCollector
   layers:
   - Default
   - TransparentFX
