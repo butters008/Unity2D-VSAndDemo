@@ -9,7 +9,7 @@ public class Pipes : MonoBehaviour
   // Start is called before the first frame update
   void Start()
   {
-      
+
   }
 
   // Update is called once per frame
@@ -18,17 +18,10 @@ public class Pipes : MonoBehaviour
     MovePipes();
 
   }
-  
-  void MovePipes(){
-    float xAmount = xSpeed * Time.deltaTime;  
-    transform.Translate(-xAmount, 0, 0);
-  }
 
-  private void OnTriggerEnter2D(Collider2D other) {
-      Debug.Log("Triggered in Pipes");
-    if(other){
-      Debug.Log("Triggered in if");
-      // Destroy(other.gameObject);
-    }
+  void MovePipes()
+  {
+    float xAmount = xSpeed * Time.deltaTime;
+    transform.Translate(-xAmount, 0, 0);
   }
 }
