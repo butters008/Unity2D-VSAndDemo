@@ -10,6 +10,7 @@ TagManager:
   - FinishLine
   - Pipe
   - GarbageCollector
+  - Counter
   layers:
   - Default
   - TransparentFX
