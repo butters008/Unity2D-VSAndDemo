@@ -10,6 +10,8 @@ TagManager:
   - FinishLine
   - Pipe
   - GarbageCollector
+  - Counter
+  - OutOfBounds
   layers:
   - Default
   - TransparentFX
