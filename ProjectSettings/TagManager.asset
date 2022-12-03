@@ -11,6 +11,7 @@ TagManager:
   - Pipe
   - GarbageCollector
   - Counter
+  - OutOfBounds
   layers:
   - Default
   - TransparentFX

@@ -1,12 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
   Rigidbody2D rb;
   [SerializeField] float jumpAmount = 2f;
-  int scoreCount = 0;
+  public int scoreCount = 0;
+  [SerializeField] TextMeshProUGUI scoreText;
+
+  // //Getters and Setter
+  public int getScore()
+  {
+    return scoreCount;
+  }
 
   private void Awake()
   {
@@ -36,8 +45,15 @@ public class Player : MonoBehaviour
     if (other.gameObject.tag == "Pipe")
     {
       //Need to do game over here
-      Debug.Log("Bird hit pipe");
-      Destroy(this.gameObject);
+      Debug.Log("Game Over - Bird hit pipe");
+      // Destroy(this.gameObject);
+      loadGameOver();
+    }
+    if (other.gameObject.tag == "OutOfBounds")
+    {
+      Debug.Log("Game Over - Out of Bounds");
+      // Destroy(this.gameObject);
+      loadGameOver();
     }
   }
 
@@ -47,6 +63,12 @@ public class Player : MonoBehaviour
     {
       scoreCount++;
       Debug.Log(scoreCount);
+      scoreText.text = "Score: " + scoreCount.ToString();
     }
+  }
+
+  private void loadGameOver()
+  {
+    SceneManager.LoadScene("FlappyBirdGameOver");
   }
 }
