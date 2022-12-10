@@ -4,25 +4,43 @@ using UnityEngine;
 
 public class Grid : MonoBehaviour
 {
-  [SerializeField] GameObject tile;
+  [SerializeField] Tile tile;
   [SerializeField] int xLength;
   [SerializeField] int yLength;
-  public void CreateGrid()
+  [SerializeField] Transform cam;
+  void CreateGrid()
   {
-    //Ok, from Code Monkey and from the other guy this is what I have gathered, and will need to figure out
     /*
-    Here is the list I think I need to complete in order to get the battleship game to work
-    1) Making the Grid
-      - From what I saw, I need to make a nested for loop, one for x and one for y
-      - Once the grid is complete, being able to click and read the cell value - this will also store the data for ships
+    Things I need to figure out
+    (I was a dip and got this working :facepalm)  Why calling Tile object is broke while and not GameObject
+    1) Sending back to tile its cordinates in with seperate vars or as an array
+    2) Determine how much more work it would be to get this working in isometric view
+    3) IDK might be in both tile and here, work on Fog Of War mechanic
+    4)
+
+    Ideas for later
+    1) Making some tiles or areas of grid non-navigation area
+    2) FOR SURE LATER! - working heights/levels within the grid 
     */
-    //for(x = 0; x < xLength; x++){
-    // for(y = 0; y < yLength; y++){
 
-    //   }
-    // }
+    for (int x = 0; x < xLength; x++)
+    {
+      for (int y = 0; y < yLength; y++)
+      {
+        var spawnTile = Instantiate(tile, new Vector3(x, y), Quaternion.identity);
+        var isOffset = (x % 2 == 0 && y % 2 != 0) || (x % 2 != 0 && y % 2 == 0);
+        spawnTile.colorTile(isOffset);
+        spawnTile.name = $"Tile{x}-{y}";
+        Debug.Log("(" + x + " , " + y + ")");
+      }
+    }
 
+    //Not sure why I am doing this at -10, doing it for right now.
+    cam.transform.position = new Vector3((float)xLength / 2 - 0.5f, (float)yLength / 2 - 0.5f, -10);
+  }//end of CreateGrid
 
-  }//end of Grid
-
+  private void Start()
+  {
+    CreateGrid();
+  }
 }//End of class
