@@ -28,4 +28,9 @@ Things I need to figure out
       _render.color = baseColor;
     }
   }
+
+  public void deleteAfterCommit()
+  {
+    Debug.Log("Delete me!");
+  }
 }

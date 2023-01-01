@@ -43,4 +43,10 @@ public class Grid : MonoBehaviour
   {
     CreateGrid();
   }
+
+  public void deleteAfterCommit()
+  {
+    Debug.Log("Delete me!");
+  }
+
 }//End of class

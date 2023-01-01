@@ -13,4 +13,9 @@ public class Ship : MonoBehaviour
   4) 
   */
 
+  public void deleteAfterCommit()
+  {
+    Debug.Log("Delete me!");
+  }
+
 }
