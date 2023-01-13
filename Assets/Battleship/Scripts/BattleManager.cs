@@ -14,15 +14,12 @@ public class BattleManager : MonoBehaviour
   - Test battle
   - Complete battle (one side loose)
  */
-  void Start()
-  {
 
-  }
+  //Vars and Object
+  int turnCounter = 0;
 
-  void Update()
-  {
 
-  }
+
 
 
 }
