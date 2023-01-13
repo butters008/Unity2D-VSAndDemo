@@ -18,15 +18,6 @@ public class BattleManager : MonoBehaviour
   //Vars and Object
   int turnCounter = 0;
 
-  void Start()
-  {
-
-  }
-
-  void Update()
-  {
-
-  }
 
 
 
