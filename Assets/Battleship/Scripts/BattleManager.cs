@@ -17,6 +17,31 @@ public class BattleManager : MonoBehaviour
 
   //Vars and Object
   int turnCounter = 0;
+  PlayerManager playerManager;
+  int playerNumberCount;
+
+  private void Awake()
+  {
+    playerManager = FindObjectOfType<PlayerManager>();
+  }
+
+  private void Start()
+  {
+    playerNumberCount = playerManager.getNumberOfUnits();
+    Debug.Log(playerNumberCount);
+  }
+
+
+  private void Update()
+  {
+
+  }
+
+  void battleProcess()
+  {
+
+  }
+
 
 
 
