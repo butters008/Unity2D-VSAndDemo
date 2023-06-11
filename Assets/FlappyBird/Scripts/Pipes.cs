@@ -16,7 +16,6 @@ public class Pipes : MonoBehaviour
   void Update()
   {
     MovePipes();
-
   }
 
   void MovePipes()
