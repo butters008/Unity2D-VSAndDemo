@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.EnhancedTouch;
 using UnityEngine.SceneManagement;
-using Touch = UnityEngine.InputSystem.EnhancedTouch.Touch; //Mulit-Touch code
+using Touch = UnityEngine.InputSystem.EnhancedTouch.Touch; //Multi-Touch code
 
 public class BallHandler : MonoBehaviour
 {
@@ -26,13 +26,13 @@ public class BallHandler : MonoBehaviour
         RespawnBall();
     }
 
-    //Mulit-Touch code
+    //Multi-Touch code
     private void OnEnable()
     {
         EnhancedTouchSupport.Enable();
     }
 
-    //Mulit-Touch code
+    //Multi-Touch code
     private void OnDisable()
     {
         EnhancedTouchSupport.Disable();
@@ -47,7 +47,7 @@ public class BallHandler : MonoBehaviour
         }
 
        // if (!Touchscreen.current.primaryTouch.press.isPressed)
-       //Mulit-Touch code
+       //Multi-Touch code
        if(Touch.activeTouches.Count == 0 )
         {
             if (isDragging)
@@ -62,16 +62,16 @@ public class BallHandler : MonoBehaviour
 
         isDragging = true;
 
-        //Mulit-Touch code
+        //Multi-Touch code
         Vector2 touchPosition = new Vector2();
         
-        //Mulit-Touch code
+        //Multi-Touch code
         foreach (Touch touch in Touch.activeTouches)
         {
             touchPosition += touch.screenPosition;
         }
 
-        //Mulit-Touch code
+        //Multi-Touch code
         touchPosition /= Touch.activeTouches.Count;
         
 //        Vector2 touchPosition = Touchscreen.current.primaryTouch.position.ReadValue();
