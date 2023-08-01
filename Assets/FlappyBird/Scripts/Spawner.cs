@@ -6,8 +6,7 @@ public class Spawner : MonoBehaviour
 {
   [SerializeField] GameObject objectToSpawn;
   bool timeToRespawn = false;
-
-  int maxPipes = 4;
+  
   Vector2 randomPosition;
 
   private void Start() {

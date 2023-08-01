@@ -5,9 +5,9 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/MainMenu-Mobile.unity
+    guid: d548ba49d3f163d4daf40a6c980e1759
   - enabled: 0
     path: Assets/FlappyBird/FlappyBirdGame.unity
     guid: e5155514042cd3342afb8697ae10097a
@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/FlappyBird/FlappyBirdGameOver.unity
     guid: 04416f533ac96d24987f441c323a74da
   - enabled: 1
+    path: Assets/Udemy-Mobile/S3-Simple Driving/Mobile - Simple Driving Game.unity
+    guid: b63c5be3c6c8afe49b678f91c95307b4
+  - enabled: 0
     path: Assets/Udemy-Mobile/S2-Ball Launcher/Ball Launcher Game Demo.unity
     guid: 94f4e573399050a45af7e186fdb4fed3
   m_configObjects:
