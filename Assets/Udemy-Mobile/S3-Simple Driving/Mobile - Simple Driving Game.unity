@@ -313,3 +313,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
+  speedIncrease: 0.2
+  turnSpeed: 0
