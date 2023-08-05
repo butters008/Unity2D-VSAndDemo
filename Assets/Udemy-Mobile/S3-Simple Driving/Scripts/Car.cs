@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,9 @@ public class Car : MonoBehaviour
   [SerializeField] private float speedIncrease;
   [SerializeField] private float turnSpeed;
   private int steerValue;
+  
+  //This is for the scoring
+  [SerializeField] private int score;
 
   // Update is called once per frame
   void Update()
@@ -28,4 +32,6 @@ public class Car : MonoBehaviour
     steerValue = value;
     Debug.Log("Turning " + steerValue);
   }
+  
+
 }

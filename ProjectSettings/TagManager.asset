@@ -12,6 +12,7 @@ TagManager:
   - GarbageCollector
   - Counter
   - OutOfBounds
+  - PleaseWork
   layers:
   - Default
   - TransparentFX
