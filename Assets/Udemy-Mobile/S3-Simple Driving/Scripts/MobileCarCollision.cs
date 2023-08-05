@@ -13,11 +13,11 @@ public class MobileCarCollision : MonoBehaviour
             // Debug.Log(score);
             Debug.Log("Finish Line Triggered");
         }
-        else if (other.CompareTag("Player"))
-        {
-            Debug.Log("My Logic is Off....");
-        }
-        else if (other.CompareTag("PleaseWork"))
+        // else if (other.CompareTag("Player"))
+        // {
+        //     Debug.Log("My Logic is Off....");
+        // }
+        else if (other.CompareTag("Ouch"))
         {
             Debug.Log("Really??");
         }
@@ -29,7 +29,7 @@ public class MobileCarCollision : MonoBehaviour
         {
             Debug.Log("Ouch");
         }
-        else if (other.gameObject.CompareTag("PleaseWork"))
+        else if (other.gameObject.CompareTag("Respawn"))
         {
             Debug.Log("Something is wrong!!!");
         }
